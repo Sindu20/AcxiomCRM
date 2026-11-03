@@ -1,0 +1,168 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AcxiomCRM</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        body {
+            margin: 0;
+            background: #f4f6fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .crm-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            background: #172554;
+            color: white;
+            padding: 25px 15px;
+            flex-shrink: 0;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 35px;
+            padding-left: 10px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 13px 15px;
+            border-radius: 7px;
+            margin-bottom: 7px;
+            transition: 0.2s;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .main-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .topbar {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .content-area {
+            padding: 30px;
+        }
+
+        footer {
+            padding: 15px 30px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @@media (max-width: 768px) {
+            .sidebar {
+                width: 180px;
+            }
+
+            .content-area {
+                padding: 15px;
+            }
+        }
+
+        @@media (max-width: 500px) {
+            .crm-wrapper {
+                display: block;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="crm-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">🚀 AcxiomCRM</div>
+
+        <p class="text-uppercase small text-secondary px-3">
+            Main Menu
+        </p>
+
+        <a asp-controller="Home" asp-action="Index" class="active">
+            📊 Dashboard
+        </a>
+
+        <a asp-controller="Customers" asp-action="Index">👥 Customers</a>
+        <a href="#">🎯 Leads</a>
+        <a href="#">💼 Opportunities</a>
+        <a href="#">📅 Follow-Ups</a>
+        <a href="#">📋 Activities</a>
+
+        <p class="text-uppercase small text-secondary px-3 mt-4">
+            Management
+        </p>
+
+        <a href="#">📈 Reports</a>
+        <a href="#">👤 User Management</a>
+        <a href="#">🔐 Audit Logs</a>
+
+        <hr class="border-secondary" />
+
+        <a href="#">🚪 Logout</a>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-area">
+
+        <header class="topbar">
+            <h5 class="mb-0">Dashboard</h5>
+            <span class="text-secondary">Welcome, Admin 👋</span>
+        </header>
+
+        <main class="content-area">
+            @RenderBody()
+        </main>
+
+        <footer>
+            © 2026 AcxiomCRM | Customer Relationship Management
+        </footer>
+
+    </div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

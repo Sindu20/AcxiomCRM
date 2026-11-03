@@ -105,7 +105,6 @@
 
 <div class="crm-wrapper">
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
 
         <div class="brand">🚀 AcxiomCRM</div>
@@ -114,12 +113,18 @@
             Main Menu
         </p>
 
-        <a asp-controller="Home" asp-action="Index" class="active">
+        <a asp-controller="Home" asp-action="Index">
             📊 Dashboard
         </a>
 
-        <a asp-controller="Customers" asp-action="Index">👥 Customers</a>
-        <a href="#">🎯 Leads</a>
+        <a asp-controller="Customers" asp-action="Index">
+            👥 Customers
+        </a>
+
+        <a asp-controller="Leads" asp-action="Index">
+            📋 Leads
+        </a>
+
         <a href="#">💼 Opportunities</a>
         <a href="#">📅 Follow-Ups</a>
         <a href="#">📋 Activities</a>
@@ -138,7 +143,6 @@
 
     </aside>
 
-    <!-- MAIN CONTENT -->
     <div class="main-area">
 
         <header class="topbar">
